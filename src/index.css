@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Saira+Stencil:ital,wght@0,100..900;1,100..900&family=Monda:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .about-tour::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 32%;
+  height: 2px;
+  border-radius: 4px;
+}
+
+.about-tour::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 32%;
+  height: 2px;
+  border-radius: 4px;
+} */
+
+/* Hamburger Menu */
+
+.hamburger {
+  cursor: pointer;
+  width: 24px;
+  height: 16px;
+  transition: all 0.25s;
+  position: relative;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger-middle {
+  transform: translateY(7px);
+}
+
+.hamburger-bottom {
+  transform: translateY(14px);
+}
+
+.open {
+  transform: rotate(90deg);
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+
+.open .hamburger-middle {
+  display: none;
+}
+
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}
+
+#menu {
+  z-index: 10;
+}
