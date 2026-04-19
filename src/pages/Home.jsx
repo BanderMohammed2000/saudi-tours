@@ -1,4 +1,6 @@
 import Header from "../components/layout/Header";
+import Contact from "../components/ui/Contact";
+import TripIncludes from "../components/ui/TripIncludes";
 import TripRoute from "../components/ui/TripRoute";
 
 function Home() {
@@ -6,6 +8,8 @@ function Home() {
     <>
       <Header />
       <TripRoute />
+      <TripIncludes />
+      <Contact />
     </>
   );
 }

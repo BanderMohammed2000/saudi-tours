@@ -16,6 +16,7 @@ export default {
         graySoft: "#D6D6D6",
         grayMuted: "#E0E0E0",
         oliveAccent: "#9AA23D",
+        blackSoft: "#040404",
       },
     },
   },

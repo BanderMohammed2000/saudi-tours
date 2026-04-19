@@ -1,15 +1,16 @@
-function Button({ children, variant = "solid", className = "" }) {
+function Button({
+  children,
+  variant = "solid",
+  type = "button",
+  className = "",
+}) {
   const base = "border transition";
   const variants = {
-    solid:
-      "text-black bg-white rounded h-8 sm:w-44 xl:w-52 text-lg font-medium",
-    outline: "rounded-[50px] py-[2px] px-5",
+    solid: "text-black bg-white rounded py-0.5 text-lg font-medium",
+    outline: "rounded-[50px] py-0.5 px-5",
   };
   return (
-    <button
-      type="button"
-      className={`${base} ${variants[variant]} ${className}`}
-    >
+    <button type={type} className={`${base} ${variants[variant]} ${className}`}>
       {children}
     </button>
   );

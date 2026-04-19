@@ -3,21 +3,21 @@ import TripTimeline from "./TripTimeline";
 function TripRoute() {
   const tripDescription = "font-medium leading-relaxed";
   return (
-    <section id="about" className="bg-[#040404] relative">
-      <div className="block lg:hidden sm:container sm:mx-auto py-4 sm:py-5 sm:px-6">
+    <section id="about" className="bg-blackSoft relative">
+      <div className="block lg:hidden container sm:mx-auto py-4 sm:py-5 sm:px-6">
         <div className="flex items-center gap-2">
           <div className="bg-whiteSoft h-0.5 flex-1 rounded-md"></div>
-          <h2 className="font-monda text-2xl sm:text-3xl xl:text-5xl uppercase text-whiteSoft text-center">
+          <h2 className="font-monda text-2xl sm:text-3xl uppercase text-whiteSoft text-center">
             about the tour
           </h2>
           <div className="bg-whiteSoft h-0.5 flex-1 rounded-md"></div>
         </div>
       </div>
-      <div className="container mx-auto px-6 lg:pt-6 pb-14">
+      <div className="container mx-auto px-6 lg:pt-6 pb-1 lg:pb-14">
         <div className="flex flex-col lg:flex-row justify-between space-y-6 lg:space-y-0">
           <div className="flex flex-col justify-between w-11/12 sm:w-3/4 lg:w-2/5">
             <div>
-              <p className={`${tripDescription} text-graySoft`}>
+              <p className={`${tripDescription} text-graySoft font-sans`}>
                 This journey across Saudi Arabia blends culture, nature, and
                 modern experiences. Begin in AlUla, then explore Riyadh,
                 including the vibrant Boulevard. Continue to Jeddah along the
@@ -55,6 +55,12 @@ function TripRoute() {
             Stress-free travel experience awaits you
           </p>
         </div>
+        {/* <div className="flex items-center gap-2 mt-20">
+          <h2 className="font-monda text-2xl sm:text-3xl xl:text-6xl uppercase text-whiteSoft text-center">
+            what's included
+          </h2>
+          <div className="bg-whiteSoft h-0.5 flex-1 rounded-md"></div>
+        </div> */}
       </div>
     </section>
   );

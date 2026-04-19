@@ -3,7 +3,7 @@ import Button from "../ui/Button";
 function Navbar() {
   return (
     <nav className="container mx-auto p-6">
-      <div className="flex justify-between items-center p-3 bg-white/15 backdrop-blur-md text-white  rounded-[50px]">
+      <div className="flex justify-between items-center p-3 bg-white/15 backdrop-blur-sm text-white  rounded-[50px]">
         <div className="flex space-x-2 items-center">
           <img src={logo} alt="logo" className="w-[34px] h-[34px]" />
           <p className="font-medium text-lg uppercase font-monda">
@@ -23,15 +23,15 @@ function Navbar() {
         </ul>
 
         {/* <!-- Hamburger Menu --> */}
-        <div class="md:hidden">
+        <div className="md:hidden">
           <button
             id="menu-btn"
             type="button"
-            class="z-40 block hamburger md:hidden focus:outline-none"
+            className="z-40 block hamburger md:hidden focus:outline-none"
           >
-            <span class="hamburger-top"></span>
-            <span class="hamburger-middle"></span>
-            <span class="hamburger-bottom"></span>
+            <span className="hamburger-top"></span>
+            <span className="hamburger-middle"></span>
+            <span className="hamburger-bottom"></span>
           </button>
         </div>
         <div className="hidden md:block">

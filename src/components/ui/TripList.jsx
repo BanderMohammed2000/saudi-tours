@@ -30,7 +30,7 @@ function TripList() {
             src={saudiMan}
             alt="saudi man"
           />
-          <Button className="absolute right-3 w-40 md:static z-20 md:z-0">
+          <Button className="absolute right-3 sm:w-44 xl:w-52 w-40 md:static z-20 md:z-0">
             Book
           </Button>
         </div>
@@ -38,7 +38,7 @@ function TripList() {
       {/* خلفية شفافة */}
       <div className="flex items-center gap-4 absolute left-0 -bottom-2 lg:bottom-0 px-6 w-full h-4 lg:h-14 bg-gradient-to-t from-black/70 via-black/30 to-transparent drop-shadow-lg z-10">
         <div className="hidden lg:block bg-whiteSoft  h-0.5 flex-1 rounded-md"></div>
-        <h2 className="hidden lg:block font-monda text-4xl xl:text-5xl uppercase text-whiteSoft text-center">
+        <h2 className="hidden lg:block font-monda text-4xl xl:text-6xl uppercase text-whiteSoft text-center">
           about the tour
         </h2>
         <div className="hidden lg:block bg-whiteSoft h-0.5 flex-1 rounded-md"></div>
