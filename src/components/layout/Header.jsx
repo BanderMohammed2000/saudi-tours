@@ -7,6 +7,8 @@ import TripList from "../ui/TripList";
 import Navbar from "./Navbar";
 
 function Header() {
+  const iconStyle =
+    "text-whiteSoft transition-all duration-300 ease-out hover:text-oliveAccent active:text-oliveAccentDark";
   return (
     <header
       id="hero"
@@ -17,13 +19,13 @@ function Header() {
       <div className="container mx-auto px-6 pt-8 relative">
         <div className=" flex justify-between mb-20">
           <h1 className="font-saira font-light uppercase text-whiteSoft text-7xl sm:text-8xl md:text-9xl ml-10 sm:ml-20 lg:ml-36 xl:scale-125 ">
-            Saudi
+            <span className="text-oliveAccent">sa</span>udi
           </h1>
           <ul className="hidden md:flex flex-col space-y-4">
             <li>
               <a href="#">
                 {/* <img src={instaIcon} alt="Instagram Icon" className="w-7 h-7" /> */}
-                <i className="fa-brands fa-facebook-f fa-lg text-whiteSoft"></i>
+                <i className={`${iconStyle} fa-brands fa-facebook-f fa-lg`}></i>
               </a>
             </li>
             <li>
@@ -33,13 +35,13 @@ function Header() {
                   alt="Facebook Icon"
                   className="w-7 h-7"
                 /> */}
-                <i className="fa-brands fa-instagram fa-lg text-whiteSoft"></i>
+                <i className={`${iconStyle} fa-brands fa-instagram fa-lg`}></i>
               </a>
             </li>
             <li>
               <a href="#">
                 {/* <img src={xIcon} alt="X Icon" className="w-7 h-7" /> */}
-                <i className="fa-brands fa-x-twitter fa-lg text-whiteSoft"></i>
+                <i className={`${iconStyle} fa-brands fa-x-twitter fa-lg`}></i>
               </a>
             </li>
           </ul>

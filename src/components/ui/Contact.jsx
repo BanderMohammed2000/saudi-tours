@@ -3,6 +3,8 @@ import Footer from "../layout/Footer";
 import Form from "./Form";
 
 function Contact() {
+  const iconStyle =
+    "text-whiteSoft transition-all duration-300 ease-out hover:text-oliveAccent active:text-oliveAccentDark";
   return (
     <>
       <section
@@ -19,7 +21,9 @@ function Contact() {
                 <li>
                   <a href="#">
                     {/* <img src={instaIcon} alt="Instagram Icon" className="w-7 h-7" /> */}
-                    <i className="fa-brands fa-facebook-f fa-lg text-whiteSoft"></i>
+                    <i
+                      className={`${iconStyle} fa-brands fa-facebook-f fa-lg`}
+                    ></i>
                   </a>
                 </li>
                 <li>
@@ -29,13 +33,17 @@ function Contact() {
                   alt="Facebook Icon"
                   className="w-7 h-7"
                 /> */}
-                    <i className="fa-brands fa-instagram fa-lg text-whiteSoft"></i>
+                    <i
+                      className={`${iconStyle} fa-brands fa-instagram fa-lg`}
+                    ></i>
                   </a>
                 </li>
                 <li>
                   <a href="#">
                     {/* <img src={xIcon} alt="X Icon" className="w-7 h-7" /> */}
-                    <i className="fa-brands fa-x-twitter fa-lg text-whiteSoft"></i>
+                    <i
+                      className={`${iconStyle} fa-brands fa-x-twitter fa-lg`}
+                    ></i>
                   </a>
                 </li>
               </ul>

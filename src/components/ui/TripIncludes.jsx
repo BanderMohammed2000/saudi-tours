@@ -1,15 +1,20 @@
 import IncludeCard from "./IncludeCard";
 // import flight from "../../assets/icons/flight.svg";
 import hotel from "../../assets/icons/hotel.svg";
+import hotelWhite from "../../assets/icons/hotel-white.svg";
 import campervan from "../../assets/icons/campervan.svg";
+import campervanWhite from "../../assets/icons/campervan-white.svg";
 import guide from "../../assets/icons/map-line.svg";
+import guideWhite from "../../assets/icons/map-line-white.svg";
 import flight from "../../assets/icons/earth-airplane.svg";
+import flightWhite from "../../assets/icons/earth-airplane-white.svg";
 function TripIncludes() {
   const tripIncludes = [
     {
       title: "Guides",
       text: "2 awesome guides who know everything about tour!",
       image: guide,
+      image2: guideWhite,
     },
     {
       title: "Flights",
@@ -18,16 +23,19 @@ function TripIncludes() {
       Jeddah ___ Jazan
       `,
       image: flight,
+      image2: flightWhite,
     },
     {
       title: "Transfers",
       text: "From the airport to the hotels with reliable transport service.",
       image: campervan,
+      image2: campervanWhite,
     },
     {
       title: "Hotels",
       text: "Comfortable accommodation 2 people per room (breakfasts included).",
       image: hotel,
+      image2: hotelWhite,
     },
   ];
   return (

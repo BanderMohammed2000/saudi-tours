@@ -1,6 +1,8 @@
 import logo from "../../assets/globe.svg";
 import Button from "../ui/Button";
 function Navbar() {
+  const navStyle =
+    "transition-all duration-300 ease-out hover:text-oliveAccent active:text-oliveAccentDark";
   return (
     <nav className="container mx-auto p-6">
       <div className="flex justify-between items-center p-3 bg-white/15 backdrop-blur-sm text-white  rounded-[50px]">
@@ -12,13 +14,19 @@ function Navbar() {
         </div>
         <ul className="hidden md:flex space-x-6">
           <li>
-            <a href="#about">About</a>
+            <a className={navStyle} href="#about">
+              About
+            </a>
           </li>
           <li>
-            <a href="#included">Included</a>
+            <a className={navStyle} href="#included">
+              Included
+            </a>
           </li>
           <li>
-            <a href="#contacts">Contacts</a>
+            <a className={navStyle} href="#contacts">
+              Contacts
+            </a>
           </li>
         </ul>
 

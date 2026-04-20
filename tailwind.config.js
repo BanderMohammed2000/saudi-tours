@@ -11,11 +11,12 @@ export default {
         saira: ["Saira Stencil", "sans-serif"],
       },
       colors: {
-        whiteSoft: "rgba(255, 255, 255, 0.9)",
+        whiteSoft: "#FFFFFFE6",
         grayLight: "#EEEEEE",
         graySoft: "#D6D6D6",
         grayMuted: "#E0E0E0",
         oliveAccent: "#9AA23D",
+        oliveAccentDark: "#7F862F",
         blackSoft: "#040404",
       },
     },
