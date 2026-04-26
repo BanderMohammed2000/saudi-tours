@@ -19,7 +19,8 @@ function TripList() {
   return (
     <>
       <div className="flex md:items-center justify-between gap-x-4">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-x-4 sm:gap-y-2 w-[85%] sm:w-auto">
+        {/* w-[85%] */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-x-4 sm:gap-y-2 w-3/4 sm:w-auto">
           {trips.map((trip, index) => (
             <TripCard key={index} {...trip} />
           ))}

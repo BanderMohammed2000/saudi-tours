@@ -20,7 +20,6 @@ function Contact() {
               <ul className="flex space-x-4 justify-end">
                 <li>
                   <a href="#">
-                    {/* <img src={instaIcon} alt="Instagram Icon" className="w-7 h-7" /> */}
                     <i
                       className={`${iconStyle} fa-brands fa-facebook-f fa-lg`}
                     ></i>
@@ -28,11 +27,6 @@ function Contact() {
                 </li>
                 <li>
                   <a href="#">
-                    {/* <img
-                  src={facebookIcon}
-                  alt="Facebook Icon"
-                  className="w-7 h-7"
-                /> */}
                     <i
                       className={`${iconStyle} fa-brands fa-instagram fa-lg`}
                     ></i>
@@ -40,7 +34,6 @@ function Contact() {
                 </li>
                 <li>
                   <a href="#">
-                    {/* <img src={xIcon} alt="X Icon" className="w-7 h-7" /> */}
                     <i
                       className={`${iconStyle} fa-brands fa-x-twitter fa-lg`}
                     ></i>

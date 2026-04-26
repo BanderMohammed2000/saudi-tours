@@ -3,6 +3,7 @@ function Button({
   variant = "solid",
   type = "button",
   className = "",
+  ...props
 }) {
   const base = "transition-all duration-300 ease-out";
   const variants = {
@@ -12,7 +13,11 @@ function Button({
       "border rounded-[50px] py-0.5 px-5 hover:text-oliveAccent hover:border-oliveAccent active:border-oliveAccentDark active:text-oliveAccentDark",
   };
   return (
-    <button type={type} className={`${base} ${variants[variant]} ${className}`}>
+    <button
+      type={type}
+      className={`${base} ${variants[variant]} ${className}`}
+      {...props}
+    >
       {children}
     </button>
   );
