@@ -1,28 +1,76 @@
+import { useState, useRef } from "react";
+
 import saudiMan from "../../assets/images/saudi-man.png";
 import boulevard from "../../assets/images/places/boulevard-riyadh.jpg";
 import alula from "../../assets/images/places/alula.jpg";
 import farasan from "../../assets/images/places/farasan-islands.jpg";
 import corniche from "../../assets/images/places/jeddah-corniche.jpg";
 import fifa from "../../assets/images/places/fifa-mountains.jpg";
+import alulaVideo from "../../assets/videos/alula-video.mp4";
+import boulevardVideo from "../../assets/videos/boulevard-riyadh-video.mp4";
+import farasanVideo from "../../assets/videos/farasan-islands-video.mp4";
+import cornicheVideo from "../../assets/videos/jeddah-corniche-video.mp4";
+import fifaVideo from "../../assets/videos/fifa-mountains-video.mp4";
+
 import Button from "./Button";
 import TripCard from "./TripCard";
 
-function TripList() {
+function TripList({ setActiveVideo, setIsHover }) {
+  const [hoveredCard, setHoveredCard] = useState(null);
+
   const trips = [
-    { title: "Boulevard Riyadh", image: boulevard },
-    { title: "Alula", image: alula },
-    { title: "Farasan Islands", image: farasan },
-    { title: "Jeddah Corniche", image: corniche },
-    { title: "Fifa Mountains", image: fifa },
+    { title: "Boulevard Riyadh", image: boulevard, video: boulevardVideo },
+    { title: "Alula", image: alula, video: alulaVideo },
+    { title: "Farasan Islands", image: farasan, video: farasanVideo },
+    { title: "Jeddah Corniche", image: corniche, video: cornicheVideo },
+    { title: "Fifa Mountains", image: fifa, video: fifaVideo },
   ];
+
+  const hoverTimeout = useRef(null);
+
+  const handleMouseEnter = (video) => {
+    clearTimeout(hoverTimeout.current);
+
+    hoverTimeout.current = setTimeout(() => {
+      setActiveVideo(video);
+      setIsHover(true);
+    }, 600);
+  };
+
+  // const handleMouseLeave = () => {
+  //   clearTimeout(hoverTimeout.current);
+  //   setActiveVideo(null);
+  // };
+
+  const handleMouseLeave = () => {
+    clearTimeout(hoverTimeout.current);
+
+    hoverTimeout.current = setTimeout(() => {
+      setActiveVideo(null);
+      setIsHover(false);
+    }, 200);
+  };
 
   return (
     <>
       <div className="flex md:items-center justify-between gap-x-4">
         {/* w-[85%] */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-x-4 sm:gap-y-2 w-3/4 sm:w-auto">
+        {/* w-[75%] */}
+        <div className="group grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-x-4 sm:gap-y-2 w-[70%] sm:w-auto">
           {trips.map((trip, index) => (
-            <TripCard key={index} {...trip} />
+            <TripCard
+              key={index}
+              {...trip}
+              onMouseEnter={() => {
+                handleMouseEnter(trip.video);
+                setHoveredCard(index);
+              }}
+              onMouseLeave={() => {
+                handleMouseLeave();
+                setHoveredCard(null);
+              }}
+              isActive={hoveredCard === index}
+            />
           ))}
         </div>
         <div className="flex items-end md:items-center justify-between relative">

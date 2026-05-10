@@ -4,7 +4,7 @@ import logo from "../../assets/globe.svg";
 // import logo2 from "../../assets/globe-olive.svg";
 import Button from "../ui/Button";
 
-function Navbar() {
+function Navbar({ activeOpacity }) {
   const iconStyle =
     "text-whiteSoft transition-all duration-300 ease-out hover:text-oliveAccent active:text-oliveAccentDark";
 
@@ -30,7 +30,9 @@ function Navbar() {
   }, [isOpen]);
   return (
     <>
-      <nav className="container mx-auto p-6">
+      <nav
+        className={`${activeOpacity ? "opacity-40" : "opacity-100"} container mx-auto p-6 transition-opacity duration-300 ease-out`}
+      >
         <div
           className={`${!isOpen ? "backdrop-blur-sm bg-white/15" : ""} flex justify-between items-center p-3 text-white rounded-[50px] relative z-40`}
         >
