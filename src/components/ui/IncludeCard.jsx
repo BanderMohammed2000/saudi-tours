@@ -3,7 +3,7 @@ function IncludeCard({ title, text, image, image2 }) {
     <>
       <div className="h-52 w-3/4 sm:w-full mx-auto sm:max-w-none px-6 py-7 border-2 border-whiteSoft rounded-3xl relative overflow-hidden transition-colors duration-300 ease-out hover:bg-white/15 hover:backdrop-blur-sm">
         <img
-          className="opacity-30 lg:opacity-0 absolute -right-16 -top-2/4 translate-y-1/2 w-1/2 h-full"
+          className="opacity-30 lg:hidden absolute -right-16 -top-2/4 translate-y-1/2 w-1/2 h-full"
           src={image2}
           alt="title"
         />

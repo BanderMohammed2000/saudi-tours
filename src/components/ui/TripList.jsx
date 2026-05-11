@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
 
 import saudiMan from "../../assets/images/saudi-man.png";
 import boulevard from "../../assets/images/places/boulevard-riyadh.jpg";
@@ -51,28 +52,95 @@ function TripList({ setActiveVideo, setIsHover }) {
     }, 200);
   };
 
+  const ref = useRef(null);
+
+  const isInView = useInView(ref, {
+    once: true,
+    amount: 0.2,
+  });
+
+  const controls = useAnimation();
+
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setHasScrolled(true);
+
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (hasScrolled && isInView) {
+      controls.start("visible");
+    }
+  }, [hasScrolled, isInView, controls]);
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 80,
+      scale: 0.95,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
   return (
     <>
       <div className="flex md:items-center justify-between gap-x-4">
         {/* w-[85%] */}
         {/* w-[75%] */}
-        <div className="group grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-x-4 sm:gap-y-2 w-[70%] sm:w-auto">
+        <motion.div
+          ref={ref}
+          className="group grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-x-4 sm:gap-y-2 w-[70%] sm:w-auto"
+          variants={containerVariants}
+          initial={window.innerWidth >= 1024 ? "hidden" : false}
+          animate={window.innerWidth >= 1024 ? controls : false}
+        >
           {trips.map((trip, index) => (
-            <TripCard
-              key={index}
-              {...trip}
-              onMouseEnter={() => {
-                handleMouseEnter(trip.video);
-                setHoveredCard(index);
-              }}
-              onMouseLeave={() => {
-                handleMouseLeave();
-                setHoveredCard(null);
-              }}
-              isActive={hoveredCard === index}
-            />
+            <motion.div key={index} variants={cardVariants}>
+              <TripCard
+                key={index}
+                {...trip}
+                onMouseEnter={() => {
+                  handleMouseEnter(trip.video);
+                  setHoveredCard(index);
+                }}
+                onMouseLeave={() => {
+                  handleMouseLeave();
+                  setHoveredCard(null);
+                }}
+                isActive={hoveredCard === index}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         <div className="flex items-end md:items-center justify-between relative">
           <img
             className="h-[400px] sm:h-[600px] md:h-[400px] lg:h-[500px]  md:left-5 relative z-10"

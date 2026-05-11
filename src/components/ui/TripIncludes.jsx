@@ -49,10 +49,10 @@ function TripIncludes() {
             <div className="bg-whiteSoft h-0.5 flex-1 rounded-md"></div>
           </div>
         </div>
-        <div className="container mx-auto px-6 relative">
+        <div className="container mx-auto relative">
           {/* خلفية شفافة */}
           {/* <div className="absolute left-0 lg:-bottom-14 px-6 w-full h-24 bg-gradient-to-t from-black/70 via-black/30 to-transparent drop-shadow-lg z-10"></div> */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-4 lg:absolute lg:top-2 z-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-6 gap-5 sm:gap-4 lg:absolute lg:top-2 z-20">
             {tripIncludes.map((include, index) => (
               <IncludeCard key={index} {...include} />
             ))}

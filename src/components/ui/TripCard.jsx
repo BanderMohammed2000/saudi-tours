@@ -2,9 +2,9 @@ import play from "../../assets/icons/play-broken.svg";
 const cardBase =
   "group/card bg-cover bg-no-repeat bg-center w-full sm:w-[105px] h-full md:h-44 rounded overflow-hidden relative \
    transition-transform transition-opacity transition-shadow duration-300 ease-out \
-   group-hover:opacity-40 hover:!opacity-100 \
-   lg:hover:-translate-y-5 hover:scale-105 hover:shadow-xl \
-   hover:border hover:border-oliveAccent hover:lg:border-0";
+   group-has-[.group\\/card:hover]:opacity-40 hover:!opacity-100 \
+   lg:hover:-translate-y-5 lg:hover:scale-105 hover:shadow-xl \
+   hover:border-2 hover:border-oliveAccent hover:lg:border-0";
 const titleStyle =
   "font-saira font-medium tracking-tight sm:tracking-normal md:text-lg px-2 pb-0.5 absolute left-0 bottom-0 text-white";
 const imgStyle =
