@@ -7,6 +7,7 @@ import Navbar from "./Navbar";
 
 function Header() {
   const text = "SAUDI".split("");
+  const isMobile = window.innerWidth < 1024;
 
   const [activeVideo, setActiveVideo] = useState(null);
   const [isHover, setIsHover] = useState(false);
@@ -135,7 +136,7 @@ function Header() {
             variants={{
               visible: {
                 transition: {
-                  staggerChildren: 0.08,
+                  staggerChildren: isMobile ? 0.13 : 0.08,
                 },
               },
             }}
@@ -147,7 +148,7 @@ function Header() {
                 variants={{
                   hidden: {
                     opacity: 0,
-                    y: 100,
+                    y: isMobile ? 60 : 100,
                     scale: 0.95,
                   },
                   visible: {
@@ -155,7 +156,7 @@ function Header() {
                     y: 0,
                     scale: 1,
                     transition: {
-                      duration: 0.4,
+                      duration: isMobile ? 0.7 : 0.4,
                       ease: "easeOut",
                     },
                   },

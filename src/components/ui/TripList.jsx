@@ -127,6 +127,7 @@ function TripList({ setActiveVideo, setIsHover }) {
             <motion.div key={index} variants={cardVariants}>
               <TripCard
                 key={index}
+                index={index}
                 {...trip}
                 onMouseEnter={() => {
                   handleMouseEnter(trip.video);
