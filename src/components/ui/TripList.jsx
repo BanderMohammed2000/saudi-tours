@@ -16,8 +16,10 @@ import fifaVideo from "../../assets/videos/fifa-mountains-video.mp4";
 import Button from "./Button";
 import TripCard from "./TripCard";
 
-function TripList({ setActiveVideo, setIsHover }) {
+function TripList({ setActiveVideo, setIsHover, isHover }) {
   const [hoveredCard, setHoveredCard] = useState(null);
+
+  const aboutText = "about the tour".split("");
 
   const trips = [
     { title: "Boulevard Riyadh", image: boulevard, video: boulevardVideo },
@@ -154,12 +156,97 @@ function TripList({ setActiveVideo, setIsHover }) {
         </div>
       </div>
       {/* خلفية شفافة */}
-      <div className="flex items-center gap-4 absolute left-0 -bottom-2 lg:bottom-0 px-6 w-full h-4 lg:h-14 bg-gradient-to-t from-black/70 via-black/30 to-transparent drop-shadow-lg z-10">
+      {/* <div className="flex items-center gap-4 absolute left-0 -bottom-2 lg:bottom-0 px-6 w-full h-4 lg:h-14 bg-gradient-to-t from-black/70 via-black/30 to-transparent drop-shadow-lg z-10">
         <div className="hidden lg:block bg-whiteSoft  h-0.5 flex-1 rounded-md"></div>
         <h2 className="hidden lg:block font-monda text-4xl xl:text-6xl uppercase text-whiteSoft text-center">
           about the tour
         </h2>
         <div className="hidden lg:block bg-whiteSoft h-0.5 flex-1 rounded-md"></div>
+      </div> */}
+      <div
+        className={`${!isHover ? "bg-gradient-to-t from-black/70 via-black/30 to-transparent drop-shadow-lg" : ""} flex items-center gap-4 absolute left-0 -bottom-2 lg:bottom-0 px-6 w-full h-4 lg:h-14 z-10 overflow-hidden`}
+      >
+        {/* الخط الأول */}
+        <motion.div
+          initial={{
+            scaleX: 0,
+            opacity: 0,
+            backgroundColor: "#9AA23D",
+          }}
+          whileInView={{
+            scaleX: 1,
+            opacity: 1,
+            backgroundColor: "#FFFFFFE6",
+          }}
+          viewport={{ once: true, amount: 0.8 }}
+          transition={{
+            duration: 0.45,
+            ease: "easeOut",
+          }}
+          style={{ originX: 0 }}
+          className="hidden lg:block h-0.5 flex-1 rounded-md"
+        />
+
+        {/* النص */}
+        <motion.h2
+          className="hidden lg:block font-monda text-4xl xl:text-6xl uppercase text-center whitespace-nowrap"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.8 }}
+          variants={{
+            visible: {
+              transition: {
+                delayChildren: 0.9,
+                staggerChildren: 0.06,
+              },
+            },
+          }}
+        >
+          {aboutText.map((char, i) => (
+            <motion.span
+              key={i}
+              className="inline-block"
+              variants={{
+                hidden: {
+                  opacity: 0,
+                  color: "#9AA23D",
+                },
+                visible: {
+                  opacity: 1,
+                  color: ["#9AA23D", "#9AA23D", "#FFFFFFE6"],
+                  transition: {
+                    duration: 0.65,
+                    ease: "easeOut",
+                  },
+                },
+              }}
+            >
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+        </motion.h2>
+
+        {/* الخط الثاني */}
+        <motion.div
+          initial={{
+            scaleX: 0,
+            opacity: 0,
+            backgroundColor: "#9AA23D",
+          }}
+          whileInView={{
+            scaleX: 1,
+            opacity: 1,
+            backgroundColor: "#FFFFFFE6",
+          }}
+          viewport={{ once: true, amount: 0.8 }}
+          transition={{
+            delay: 2.3,
+            duration: 0.45,
+            ease: "easeOut",
+          }}
+          style={{ originX: 0 }}
+          className="hidden lg:block h-0.5 flex-1 rounded-md"
+        />
       </div>
     </>
   );

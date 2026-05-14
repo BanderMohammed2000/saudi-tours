@@ -1,3 +1,4 @@
+import { motion, useAnimation, useInView } from "framer-motion";
 import IncludeCard from "./IncludeCard";
 // import flight from "../../assets/icons/flight.svg";
 import hotel from "../../assets/icons/hotel.svg";
@@ -38,15 +39,81 @@ function TripIncludes() {
       image2: hotelWhite,
     },
   ];
+
+  const includedText = "what's included".split("");
+
   return (
     <>
       <section id="included" className="bg-blackSoft relative">
         <div className="container ml-auto pl-6 sm:mx-auto sm:px-6 pb-9 pt-8">
-          <div className="flex items-center gap-2">
+          {/* <div className="flex items-center gap-2">
             <h2 className="font-monda text-2xl sm:text-3xl lg:text-4xl xl:text-6xl uppercase text-whiteSoft text-center">
               what's included
             </h2>
             <div className="bg-whiteSoft h-0.5 flex-1 rounded-md"></div>
+          </div> */}
+
+          <div className="flex items-center gap-2">
+            {/* النص */}
+            <motion.h2
+              className="font-monda text-2xl sm:text-3xl lg:text-4xl xl:text-6xl uppercase text-whiteSoft text-center whitespace-nowrap"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.8 }}
+              variants={{
+                visible: {
+                  transition: {
+                    delayChildren: 0.9,
+                    staggerChildren: 0.06,
+                  },
+                },
+              }}
+            >
+              {includedText.map((char, i) => (
+                <motion.span
+                  key={i}
+                  className="inline-block"
+                  variants={{
+                    hidden: {
+                      opacity: 0,
+                      color: "#9AA23D",
+                    },
+                    visible: {
+                      opacity: 1,
+                      color: ["#9AA23D", "#9AA23D", "#FFFFFFE6"],
+                      transition: {
+                        duration: 0.65,
+                        ease: "easeOut",
+                      },
+                    },
+                  }}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
+            </motion.h2>
+
+            {/* الخط */}
+            <motion.div
+              initial={{
+                scaleX: 0,
+                opacity: 0,
+                backgroundColor: "#9AA23D",
+              }}
+              whileInView={{
+                scaleX: 1,
+                opacity: 1,
+                backgroundColor: "#FFFFFFE6",
+              }}
+              viewport={{ once: true, amount: 0.8 }}
+              transition={{
+                delay: 2.3,
+                duration: 0.45,
+                ease: "easeOut",
+              }}
+              style={{ originX: 0 }}
+              className="bg-whiteSoft h-0.5 flex-1 rounded-md"
+            />
           </div>
         </div>
         <div className="container mx-auto relative">
